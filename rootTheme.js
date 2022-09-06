@@ -60,7 +60,7 @@ const hostUrl = 'https://cdn.jsdelivr.net/gh/kreatiff/Canvas-JS@main/'
 // Load External Files                            //
 ////////////////////////////////////////////////////
 
-loadJS(`${hostUrl}/init.js`);
+loadJS(`${hostUrl}/init.js`).then(console.log('Initializer loaded!'));
 
 ////////////////////////////////////////////////////
 // END Load External Files                        //

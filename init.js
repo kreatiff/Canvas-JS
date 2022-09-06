@@ -1,1 +1,1 @@
-loadJS(`${hostUrl}/iframeResizer.min.js`);
+loadJS(`${hostUrl}/iframeResizer.min.js`).then(console.log('Resizer loaded'));
