@@ -1,1 +1,1 @@
-# GU-Canvas-JS
+Canvas-JS
