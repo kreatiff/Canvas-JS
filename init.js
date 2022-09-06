@@ -1,1 +1,5 @@
-loadJS(`${hostUrl}/iframeResizer.min.js`).then(console.log('Resizer loaded'));
+loadJS(`${hostUrl}/iframeResizer.min.js`).then(
+    function() {
+        console.log('Resizer loaded');
+        iFrameResize({ log: true }, '#myIframe');
+    });
