@@ -45,7 +45,7 @@ const loadCSS = (filename) => {
   document.getElementsByTagName("head")[0].appendChild(fileref);
 };
 
-const hostUrl = "https://cdn.jsdelivr.net/gh/kreatiff/Canvas-JS@dev";
+const hostUrl = "https://cdn.jsdelivr.net/gh/kreatiff/Canvas-JS@dev/public";
 const datestamp = Date.now();
 
 ////////////////////////////////////////////////////

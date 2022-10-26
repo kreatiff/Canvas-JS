@@ -10,10 +10,8 @@ const initVVA = function () {
 };
 loadJS(`${hostUrl}/iframeResizer.min.js?v=${datestamp}`).then(function () {
   console.log("Resizer loaded");
-  if (document.readyState !== "loading") {
-    iFrameResize({
-      log: false,
-      heightCalculationMethod: "lowestElement",
-    }).then(console.log("resize executed"));
-  }
+  iFrameResize({
+    log: true,
+    heightCalculationMethod: "lowestElement",
+  }).then(console.log("resize executed"));
 });
