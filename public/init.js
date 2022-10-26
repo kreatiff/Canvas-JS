@@ -1,5 +1,4 @@
 const initVVA = function () {
-  datestamp = Date.now();
   loadCSS(`${hostUrl}/stackle_assistant.css?v=${datestamp}`);
   loadJS(`${hostUrl}/stackle_assistant.js?v=${datestamp}`).then(function () {
     loadJS(`${hostUrl}/draggabilly.pkgd.js?v=${datestamp}`).then(function () {
