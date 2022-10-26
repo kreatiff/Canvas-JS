@@ -13,5 +13,5 @@ loadJS(`${hostUrl}/iframeResizer.min.js?v=${datestamp}`).then(function () {
   iFrameResize({
     log: true,
     heightCalculationMethod: "lowestElement",
-  }).then(console.log("resize executed"));
+  });
 });
