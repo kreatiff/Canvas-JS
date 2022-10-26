@@ -11,7 +11,7 @@ const initVVA = function () {
 loadJS(`${hostUrl}/iframeResizer.min.js?v=${datestamp}`).then(function () {
   console.log("Resizer loaded");
   iFrameResize({
-    log: false,
+    log: true,
     heightCalculationMethod: "lowestElement",
   });
 });
