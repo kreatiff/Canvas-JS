@@ -12,6 +12,6 @@ loadJS(`${hostUrl}/iframeResizer.min.js?v=${datestamp}`).then(function () {
   console.log("Resizer loaded");
   iFrameResize({
     log: true,
-    heightCalculationMethod: "lowestElement",
+    heightCalculationMethod: "max",
   });
 });
