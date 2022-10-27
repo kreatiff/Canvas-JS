@@ -15,6 +15,6 @@ loadJS(
   iFrameResize({
     log: true,
     enablePublicMethods: true,
-    heightCalculationMethod: "lowestElement",
+    heightCalculationMethod: "max",
   });
 });
