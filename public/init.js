@@ -8,7 +8,9 @@ const initVVA = function () {
     });
   });
 };
-loadJS(`${hostUrl}/iframeResizer.min.js?v=${datestamp}`).then(function () {
+loadJS(
+  `https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.min.js`
+).then(function () {
   console.log("Resizer loaded");
   iFrameResize({
     log: true,
