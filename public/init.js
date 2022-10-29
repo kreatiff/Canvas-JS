@@ -13,8 +13,7 @@ loadJS(
 ).then(function () {
   console.log("Resizer loaded");
   iFrameResize({
-    log: true,
-    enablePublicMethods: true,
+    log: false,
     heightCalculationMethod: "max",
   });
 });
