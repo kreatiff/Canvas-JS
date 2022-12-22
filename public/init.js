@@ -15,5 +15,6 @@ loadJS(
   iFrameResize({
     log: false,
     heightCalculationMethod: "max",
+    checkOrigin: false
   });
 });
