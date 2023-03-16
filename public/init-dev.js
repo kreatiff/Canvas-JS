@@ -16,3 +16,6 @@ loadJS(
         checkOrigin: false
     });
 });
+loadCSS {
+    `{hostUrl}/stackle_canvas.css`
+};
