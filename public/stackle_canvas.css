@@ -1,4 +1,8 @@
-iframe[title~="stackle"i] {
+/*iframe[title~="stackle"i] {
     width: 1920px !important;
     height: 1020px !important;
+}*/
+
+#content .stackle_integration {
+    height: auto !important;
 }
