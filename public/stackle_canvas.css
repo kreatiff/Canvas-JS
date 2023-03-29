@@ -7,8 +7,8 @@
     height: auto !important;
 }
 
-.ui-dialogue,
-.ui-dialogue.stackle_modal {
+.ui-dialog,
+.ui-dialog.stackle_modal {
     position: fixed;
     width: 95%;
     max-width: 1920px;
