@@ -1,4 +1,4 @@
-function checkForStackleIntegration() {
+const addStackleClass = () => {
     // Get the container element with class "tool_content_wrapper"
     const container = document.querySelector(".tool_content_wrapper");
 
@@ -10,7 +10,7 @@ function checkForStackleIntegration() {
     if (hasStackleIntegration) {
         container.classList.add("stackle_integration");
     }
-}
+};
 // Call the function to run the code
 
 
@@ -23,7 +23,7 @@ loadJS(
         heightCalculationMethod: "max",
         checkOrigin: false
     }).then(function () {
-        checkForStackleIntegration();
+        addStackleClass();
     });
 });
 
