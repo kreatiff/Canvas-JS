@@ -9,6 +9,7 @@ const addStackleClass = () => {
     // add a class "stackle_integration" to the container element
     if (hasStackleIntegration) {
         container.classList.add("stackle_integration");
+        console.log("Stackle Detected... Adding CSS class");
     }
 };
 // Call the function to run the code
