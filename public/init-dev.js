@@ -22,9 +22,8 @@ loadJS(
         log: false,
         heightCalculationMethod: "max",
         checkOrigin: false
-    }).then(function () {
-        addStackleClass();
     });
+    addStackleClass();
 });
 
 loadCSS(`${hostUrl}/stackle_canvas.css`);
