@@ -13,47 +13,36 @@ const addStackleClass = () => {
     }
 };
 
-// Define the function to check for Stackle in the iframe
-const checkForStackleInIframe = (iframe) => {
-    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-    const iframeElements = iframeDocument.querySelectorAll('*');
-    for (let i = 0; i < iframeElements.length; i++) {
-        if (iframeElements[i].textContent.toLowerCase().includes('stackle')) {
-            iframe.closest('.ui-dialog').classList.add('stackle_module');
-            break;
-        }
-    }
-}
+const desiredDomain = 'staging.stackle.app';
 
-// Define the observer and configure it to watch for the resource_selection_iframe element
-const observer = new MutationObserver((mutationsList) => {
+// Define the configuration for the MutationObserver
+const observerConfig = {
+    childList: true,
+    subtree: true
+};
+
+// Define the callback function for the MutationObserver
+const observerCallback = function (mutationsList, observer) {
     for (let mutation of mutationsList) {
         if (mutation.type === 'childList') {
-            const iframe = document.getElementById('resource_selection_iframe');
-            if (iframe) {
-                observer.disconnect();
-                const iframeObserver = new MutationObserver((iframeMutationsList) => {
-                    for (let iframeMutation of iframeMutationsList) {
-                        if (iframeMutation.type === 'childList') {
-                            checkForStackleInIframe(iframe);
-                        }
-                    }
-                });
-                iframeObserver.observe(iframe.contentDocument || iframe.contentWindow.document.body, {
-                    childList: true,
-                    subtree: true
-                });
-                break;
+            const addedNodes = mutation.addedNodes;
+            for (let i = 0; i < addedNodes.length; i++) {
+                const addedNode = addedNodes[i];
+                if (addedNode.nodeName.toLowerCase() === 'iframe' && addedNode.contentWindow.location.hostname === desiredDomain) {
+                    console.log('The iframe requested ' + desiredDomain);
+                    observer.disconnect();
+                    return;
+                }
             }
         }
     }
-});
+};
 
-// Start observing the document body for changes
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
-});
+// Create a new MutationObserver object
+const observer = new MutationObserver(observerCallback);
+
+// Start observing changes to the DOM
+observer.observe(document.documentElement, observerConfig);
 
 
 
