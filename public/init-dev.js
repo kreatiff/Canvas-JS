@@ -27,21 +27,26 @@ const checkForStackleInDialogs = () => {
     }
 };
 // Call the function to run the code
-
-// Define the observer and configure it to watch for child element additions to the document body
-const observer = new MutationObserver((mutationsList) => {
-    for (let mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-            console.log("Dialog window openning!")
-            checkForStackleInDialogs();
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new MutationObserver((mutationsList) => {
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                const iframe = document.getElementById('resource_selection_iframe');
+                if (iframe) {
+                    observer.disconnect();
+                    iframe.addEventListener('load', () => {
+                        checkForStackleInDialogs();
+                    });
+                }
+            }
         }
-    }
-});
+    });
 
-// Start observing the document body for changes
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
+    // Start observing the document body for changes
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 });
 
 loadJS(
