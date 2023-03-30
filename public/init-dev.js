@@ -5,12 +5,13 @@ const addStackleClass = () => {
     // Check if the container has a child element with attribute "data-tool-id" equal to "staging.stackle.app"
     if (container !== null) {
         const hasStackleIntegration = container.querySelector("[data-tool-id*='stackle.app']") !== null;
-    }
-    // If the container has a child element with attribute "data-tool-id" equal to "staging.stackle.app",
-    // add a class "stackle_integration" to the container element
-    if (hasStackleIntegration) {
-        container.classList.add("stackle_integration");
-        console.log("Stackle Detected... Adding CSS class");
+
+        // If the container has a child element with attribute "data-tool-id" equal to "staging.stackle.app",
+        // add a class "stackle_integration" to the container element
+        if (hasStackleIntegration) {
+            container.classList.add("stackle_integration");
+            console.log("Stackle Detected... Adding CSS class");
+        }
     }
 };
 
