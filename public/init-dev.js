@@ -13,6 +13,22 @@ const addStackleClass = () => {
     }
 };
 // Call the function to run the code
+const detectStackleModule = () => {
+    const dialogContainers = document.querySelectorAll('.ui-dialog');
+    for (let i = 0; i < dialogContainers.length; i++) {
+        const childElements = dialogContainers[i].querySelectorAll('*');
+        for (let j = 0; j < childElements.length; j++) {
+            if (childElements[j].textContent.includes('stackle')) {
+                dialogContainers[i].classList.add('stackle_module');
+                break;
+            }
+        }
+    }
+};
+// Call the function to run the code
+$(".ui-dialog").on("dialogopen", function (event, ui) {
+    detectStackleModule();
+});
 
 
 loadJS(
