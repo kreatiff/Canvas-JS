@@ -3,8 +3,9 @@ const addStackleClass = () => {
     const container = document.querySelector(".tool_content_wrapper");
 
     // Check if the container has a child element with attribute "data-tool-id" equal to "staging.stackle.app"
-    const hasStackleIntegration = container.querySelector("[data-tool-id*='stackle.app']") !== null;
-
+    if (container !== null) {
+        const hasStackleIntegration = container.querySelector("[data-tool-id*='stackle.app']") !== null;
+    }
     // If the container has a child element with attribute "data-tool-id" equal to "staging.stackle.app",
     // add a class "stackle_integration" to the container element
     if (hasStackleIntegration) {
