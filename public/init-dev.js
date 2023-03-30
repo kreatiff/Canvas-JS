@@ -27,27 +27,28 @@ const checkForStackleInDialogs = () => {
     }
 };
 // Call the function to run the code
-document.addEventListener('DOMContentLoaded', () => {
-    const observer = new MutationObserver((mutationsList) => {
-        for (let mutation of mutationsList) {
-            if (mutation.type === 'childList') {
-                const iframe = document.getElementById('resource_selection_iframe');
-                if (iframe) {
-                    observer.disconnect();
-                    iframe.addEventListener('load', () => {
-                        checkForStackleInDialogs();
-                    });
-                }
+const observer = new MutationObserver((mutationsList) => {
+    for (let mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            console.log('External tool iframe detected.')
+            const iframe = document.getElementById('resource_selection_iframe');
+            if (iframe) {
+                observer.disconnect();
+                iframe.addEventListener('load', () => {
+                    console.log('External tool iframe loaded.')
+                    checkForStackleInDialogs();
+                });
             }
         }
-    });
-
-    // Start observing the document body for changes
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
+    }
 });
+
+// Start observing the document body for changes
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
 
 loadJS(
     `https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.min.js`
