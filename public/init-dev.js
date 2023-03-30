@@ -13,9 +13,9 @@ const addStackleClass = () => {
     }
 };
 
-
-
-
+loadJS(`${hostUrl}/moduleWindowFix.js`).then(function () {
+    console.log("Stackle Module Fix loaded");
+});
 
 loadJS(
     `https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.min.js`

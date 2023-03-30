@@ -7,17 +7,21 @@
     height: auto !important;
 }
 
-.ui-dialog.stackle_modal {
+body div.stackle_module {
+    outline: 0px !important;
+    z-index: 1004 !important;
     position: fixed !important;
+    height: 95vh !important;
+    max-height: 1020px !important;
     width: 95% !important;
     max-width: 1920px !important;
-    height: 90vh !important;
-    min-height: 800px !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.ui-dialogue.stackle_modal {
+body div.stackle_module #resource_selection_dialog iframe {
     width: 100%;
+    height: 95vh;
+    max-height: 1020px;
 }
