@@ -12,31 +12,29 @@ const addStackleClass = () => {
         console.log("Stackle Detected... Adding CSS class");
     }
 };
-// Call the function to run the code
-const checkForStackleInDialogs = () => {
-    const dialogContainers = document.querySelectorAll('.ui-dialog');
-    for (let i = 0; i < dialogContainers.length; i++) {
-        const childElements = dialogContainers[i].querySelectorAll('*');
-        for (let j = 0; j < childElements.length; j++) {
-            if (childElements[j].textContent.toLowerCase().includes('stackle')) {
-                dialogContainers[i].classList.add('stackle_module');
-                console.log("Stackle Module Detected... Adding CSS class to dialog");
-                break;
-            }
+
+
+// Define the function to check for Stackle in the iframe
+const checkForStackleInIframe = (iframe) => {
+    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    const iframeElements = iframeDocument.querySelectorAll('*');
+    for (let i = 0; i < iframeElements.length; i++) {
+        if (iframeElements[i].textContent.toLowerCase().includes('stackle')) {
+            iframe.closest('.ui-dialog').classList.add('stackle_module');
+            break;
         }
     }
-};
-// Call the function to run the code
+}
+
+// Define the observer and configure it to watch for the resource_selection_iframe element
 const observer = new MutationObserver((mutationsList) => {
     for (let mutation of mutationsList) {
         if (mutation.type === 'childList') {
-            console.log('External tool iframe detected.')
             const iframe = document.getElementById('resource_selection_iframe');
             if (iframe) {
                 observer.disconnect();
                 iframe.addEventListener('load', () => {
-                    console.log('External tool iframe loaded.')
-                    checkForStackleInDialogs();
+                    checkForStackleInIframe(iframe);
                 });
             }
         }
