@@ -24,4 +24,8 @@ body div.stackle_module #resource_selection_dialog iframe {
     width: 100% !important;
     height: 95vh !important;
     max-height: 1020px !important;
+    min-height: 800px;
+}
+.stackle_module #resource_selection_dialog {
+	height: 95vh !important;
 }
