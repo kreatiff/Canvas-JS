@@ -9,7 +9,6 @@
 
 body div.stackle_module {
     outline: 0px !important;
-    z-index: 1004 !important;
     position: fixed !important;
     height: 95vh !important;
     max-height: 1020px !important;
