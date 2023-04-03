@@ -6,7 +6,7 @@ const observer = new MutationObserver((mutationsList) => {
                 const parent = iframe.closest('.ui-dialog');
                 if (parent) {
                     parent.classList.add('stackle_module');
-                    parent.setAttribute('style', ''); // remove all inline styles from the parent element
+                    // parent.setAttribute('style', '');  remove all inline styles from the parent element
                     observer.disconnect(); // stop observing after the element is found
                 }
             }
