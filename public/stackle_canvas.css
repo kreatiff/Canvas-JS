@@ -25,3 +25,6 @@ body div.stackle_module #resource_selection_dialog iframe {
     height: 95vh !important;
     max-height: 1020px !important;
 }
+body.stackle_inside .ic-Layout-wrapper {
+	max-width: 100% !important;
+}
