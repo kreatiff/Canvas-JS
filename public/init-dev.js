@@ -9,6 +9,7 @@ const addStackleClass = () => {
         // If the container has a child element with attribute "data-tool-id" equal to "staging.stackle.app",
         // add a class "stackle_integration" to the container element
         if (hasStackleIntegration) {
+            document.body.classList.add("stackle_inside");
             container.classList.add("stackle_integration");
             console.log("Stackle Detected... Adding CSS class");
         }
