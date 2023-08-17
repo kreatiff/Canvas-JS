@@ -26,6 +26,6 @@ body div.stackle_module #resource_selection_dialog iframe {
     max-height: 1020px !important;
     min-height: 800px;
 }
-body.stackle_inside .ic-Layout-wrapper {
+body.stackle_inside:not(.modules):not(.pages) .ic-Layout-wrapper {
 	max-width: 100% !important;
 }

@@ -11,7 +11,6 @@ const addStackleClass = () => {
         if (hasStackleIntegration) {
             document.body.classList.add("stackle_inside");
             container.classList.add("stackle_integration");
-            document.body.lassList.add("stackle_inside");
             console.log("Stackle Detected... Adding CSS classes");
         }
     }
