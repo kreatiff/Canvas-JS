@@ -87,7 +87,7 @@ DpPrimary = {
 };
 
 // merge with extended/shared customizations config
-dpConfig = { ...DpPrimary, ...(window.dpConfig ?? {}) };
+DpConfig = { ...DpPrimary, ...(window.DpConfig ?? {}) };
 $(function () {
   const uriPrefix = location.href.includes(".beta.") ? "beta." : "";
   const toolsUri = DpConfig.toolsUri
