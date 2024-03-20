@@ -75,7 +75,7 @@ DpPrimary = {
   sharedCourse: "", // added from localStorage
   courseFormats: [],
   canvasRoles: [],
-  canvasUsers: uArr,
+  canvasUsers: [],
   canvasCourseIds: [],
   plugins: [],
   excludedModules: [],
