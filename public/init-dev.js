@@ -32,6 +32,5 @@ loadJS(
   });
   addStackleClass();
 });
-
 loadCSS(`${hostUrl}/stackle_canvas.css`);
 loadCSS(`${hostUrl}/cdls.css`);
