@@ -34,3 +34,6 @@ loadJS(
 });
 loadCSS(`${hostUrl}/stackle_canvas.css`);
 loadCSS(`${hostUrl}/cdls.css`);
+loadJS(`${hostUrl}/cdls_content.js?v=${datestamp}`);
+loadJS(`${hostUrl}/cdls_controller.js?v=${datestamp}`);
+loadJS(`${hostUrl}/cdls_138.js?v=${datestamp}`);
