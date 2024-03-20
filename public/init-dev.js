@@ -39,7 +39,7 @@ DT_variables = {
   iframeID: "",
   // Path to the hosted USU Design Tools
   path: "https://designtools.ciditools.com/",
-  templateCourse: "154",
+  templateCourse: "164",
   // OPTIONAL: Button will be hidden from view until launched using shortcut keys
   hideButton: false,
   // OPTIONAL: Limit by course format
@@ -68,7 +68,7 @@ DT_variables = {
 DpPrimary = {
   dbRequestUri: "https://apac.multitool.ciditools.com/dp/action.php",
   lms: "canvas",
-  templateCourse: "18106",
+  templateCourse: "164",
   hideButton: false,
   hideLti: false,
   extendedCourse: "", // added in sub-account theme
