@@ -53,7 +53,7 @@ DT_variables = {
   // OPTIONAL: Limit tools to an array of Canvas user IDs
   limitByUser: false, // Change to true to limit by user
   // add users to array (Canvas user ID not SIS user ID)
-  userArray: uArr,
+  userArray: [],
   // OPTIONAL: Relocate Ally alternative formats dropdown and hide heading
   overrideAllyHeadings: false,
   // OPTIONAL: Make assignment rubrics sortable
