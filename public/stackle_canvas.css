@@ -30,7 +30,15 @@ body.stackle_inside:not(.modules):not(.pages) .ic-Layout-wrapper {
 	max-width: 100% !important;
 }
 
-.cidi-demo #dpQuickLinksCourse3390-0{display:flex !important};
-.cidi-demo .for-nvda{display:none !important};
-.cidi-demo .ig-list li {margin: 0px !important};
-.cidi-demo #dpQuickLinksCourse290-1 {display: none !important};
+.cidi-demo #dpQuickLinksCourse3390-0{
+    display:flex !important;
+};
+.cidi-demo .for-nvda{
+    display:none !important;
+};
+.cidi-demo .context_module_item{
+    margin: 0 !important;
+};
+.cidi-demo #dpQuickLinksCourse290-1 {
+    display: none !important;
+};
