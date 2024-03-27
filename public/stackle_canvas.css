@@ -5,6 +5,7 @@
 
 #content .stackle_integration {
     height: auto !important;
+    margin-top: 32px;
 }
 
 body div.stackle_module {
