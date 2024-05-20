@@ -26,7 +26,7 @@ loadJS(
 ).then(function () {
   console.log("Resizer loaded");
   iFrameResize({
-    log: false,
+    log: true,
     heightCalculationMethod: "max",
     checkOrigin: false,
   });

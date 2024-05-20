@@ -2,7 +2,9 @@
     width: 1920px !important;
     height: 1020px !important;
 }*/
-
+body {
+    min-height: auto !important;
+}
 #content .stackle_integration {
     height: auto !important;
     margin-top: 32px;
