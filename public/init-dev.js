@@ -26,8 +26,8 @@ loadJS(
 ).then(function () {
   console.log("Resizer loaded");
   iFrameResize({
-    log: true,
-    heightCalculationMethod: "max",
+    log: false,
+    heightCalculationMethod: "bodyScroll",
     checkOrigin: false,
   });
   addStackleClass();

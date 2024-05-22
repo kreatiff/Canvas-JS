@@ -1,0 +1,22 @@
+{
+  "name": "canvas-js",
+  "version": "1.0.0",
+  "description": "Canvas-JS",
+  "main": "index.js",
+  "scripts": {
+       "dev": "copy-and-watch --watch public/**/*.* \"M:\\laragon\\www\\js-server\\canvas-js\""
+        },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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3@github.com/kreatiff/canvas-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kreatiff/canvas-js/issues"
+  },
+  "homepage": "https://github.com/kreatiff/canvas-js#readme",
+  "dependencies": {
+    "copy-and-watch": "^0.1.8"
+  }
+}
