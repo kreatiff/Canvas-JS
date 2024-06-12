@@ -25,11 +25,21 @@ loadJS(
   `${hostUrl}/iframeResizer.min.js`
 ).then(function () {
   console.log("Resizer loaded");
-  iFrameResize({
-    log: true,
-    heightCalculationMethod: "bodyScroll",
-    checkOrigin: false,
-  });
+  let counter = 0;
+  const intervalId = setInterval(() => {
+    console.log("Running function...");
+    iFrameResize({
+      log: false,
+      heightCalculationMethod: "bodyScroll",
+      checkOrigin: false
+    });
+
+    counter++;
+    if (counter === 10) {
+      clearInterval(intervalId);
+    }
+  }, 1000);
   addStackleClass();
 });
+
 loadCSS(`${hostUrl}/stackle_canvas.css`);

@@ -61,7 +61,7 @@ const datestamp = Date.now();
 /* loadJS(`${hostUrl}/init.js?v=${datestamp}`).then(
   console.log("Initializer loaded!")
 ); */
-loadJS(`${hostUrl}/init-dev.js?v=${datestamp}`).then(
+loadJS(`${hostUrl}/init-dev.js`).then(
     console.log("Dev Initializer loaded!")
 );
 
