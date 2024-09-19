@@ -21,25 +21,35 @@ loadJS(`${hostUrl}/moduleWindowFix.js`).then(function () {
   console.log("Stackle Module Fix loaded");
 });
 
-loadJS(
-  `${hostUrl}/iframeResizer.min.js`
-).then(function () {
-  console.log("Resizer loaded");
-  let counter = 0;
-  const intervalId = setInterval(() => {
-    console.log("Running function...");
-    iFrameResize({
-      log: false,
-      heightCalculationMethod: "bodyScroll",
-      checkOrigin: false
-    });
+// Get the current URL
+let currentURL = window.location.href;
 
-    counter++;
-    if (counter === 10) {
-      clearInterval(intervalId);
-    }
-  }, 1000);
-  addStackleClass();
-});
+// Check if the URL contains "/edit" or "/speed_grader"
+if (currentURL.includes('/edit') || currentURL.includes('/speed_grader')) {
+    // Do something here
+    console.log('URL contains /edit or /speed_grader');
+    // Add your desired action here
+} else {
+  loadJS(
+    `${hostUrl}/iframeResizer.min.js`
+  ).then(function () {
+    console.log("Resizer loaded");
+    let counter = 0;
+    const intervalId = setInterval(() => {
+      //console.log("Running function...");
+      iFrameResize({
+        log: false,
+        heightCalculationMethod: "bodyScroll",
+        checkOrigin: false
+      });
+      counter++;
+      if (counter === 10) {
+        clearInterval(intervalId);
+      }
+    }, 1000);
+    addStackleClass();
+  });
+}
+
 
 loadCSS(`${hostUrl}/stackle_canvas.css`);
