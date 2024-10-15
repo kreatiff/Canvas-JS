@@ -15,14 +15,14 @@ const addStackleClass = () => {
       // Find the closest parent with class 'tool_content_wrapper'
       const wrapper = form.closest('.tool_content_wrapper');
       
-      if (wrapper) {
-        // Find the iframe within this wrapper
-        const iframe = wrapper.querySelector('iframe');
+      // if (wrapper) {
+      //   // Find the iframe within this wrapper
+      //   const iframe = wrapper.querySelector('iframe');
         
-        if (iframe) {
-          iframe.classList.add("stackle_iframe");
-        }
-      }
+      //   if (iframe) {
+      //     iframe.classList.add("stackle_iframe");
+      //   }
+      // }
     });
 
     console.log("Stackle Detected... Added CSS classes");
@@ -45,7 +45,7 @@ function receiveMessage(event) {
   }
 }
 // event listener for message event
-window.addEventListener("message", receiveMessage, false);
+
 
 // Get the current URL
 let currentURL = window.location.href;
@@ -59,6 +59,7 @@ if (currentURL.includes('/edit') || currentURL.includes('/speed_grader')) {
     `${hostUrl}/iframeResizer.min.js`
   ).then(function () {
     addStackleClass();
+    window.addEventListener("message", receiveMessage, false);
     console.log("Resizing only stackle iframes");
     let counter = 0;
     const intervalId = setInterval(() => {
