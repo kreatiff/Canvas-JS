@@ -56,6 +56,7 @@ if (currentURL.includes("/edit") || currentURL.includes("/speed_grader")) {
   console.log("URL contains /edit or /speed_grader");
 } else {
   loadJS(`${hostUrl}/iframeResizer.min.js`).then(function () {
+    console.log("Resizer loaded");
       addStackleClass();
       let counter = 0;
       const intervalId = setInterval(() => {
