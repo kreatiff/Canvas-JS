@@ -30,9 +30,11 @@ const addStackleClass = () => {
 };
 
 function receiveMessage(event) {
+  if (event.origin.includes("stacklehq.com") || event.origin.includes("stacklehq.com")) { 
       console.log("event.origin: ", event.origin);
       console.log("event.data: ", event.data);
-      console.log("event.source: ", event.source);
+      console.log("event.source: ", event.source.postMessage);
+  }
 }
 // event listener for message event
 window.addEventListener("message", receiveMessage, false);
