@@ -39,7 +39,7 @@ function receiveMessage(event) {
   ) {
     currentIframe = getIFrameThatSentMessage(event);
 
-    console.log(getIFrameThatSentMessage(event));
+    console.log(event.data);
     //console.log("event.origin: ", event.origin);
     //console.log("event.data: ", event.data);
     //console.log("event.source: ", event.source.postMessage);
@@ -71,6 +71,7 @@ if (currentURL.includes("/edit") || currentURL.includes("/speed_grader")) {
         counter++;
         if (counter === 10) {
           clearInterval(intervalId);
+          console.log("Interval cleared");
         }
       }, 1000);
     });
