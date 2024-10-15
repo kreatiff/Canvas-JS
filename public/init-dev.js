@@ -28,12 +28,18 @@ const addStackleClass = () => {
     console.log("Stackle Detected... Added CSS classes");
   }
 };
-
+function getIFrameThatSentMessage(message) {
+  let allIFrames = Array.from(document.querySelectorAll("iframe"));
+  return allIFrames.find(
+      iframe => iframe.contentWindow == message.source
+  );
+}
 function receiveMessage(event) {
   if (event.origin.includes("stacklehq.com") || event.origin.includes("stacklehq.com")) { 
-      console.log("event.origin: ", event.origin);
-      console.log("event.data: ", event.data);
-      console.log("event.source: ", event.source.postMessage);
+    console.log(getIFrameThatSentMessage(event));
+      //console.log("event.origin: ", event.origin);
+      //console.log("event.data: ", event.data);
+      //console.log("event.source: ", event.source.postMessage);
   }
 }
 // event listener for message event
