@@ -56,7 +56,6 @@ if (currentURL.includes("/edit") || currentURL.includes("/speed_grader")) {
   console.log("URL contains /edit or /speed_grader");
 } else {
   loadJS(`${hostUrl}/iframeResizer.min.js`).then(function () {
-    document.addEventListener("DOMContentLoaded", (event) => {
       addStackleClass();
       let counter = 0;
       const intervalId = setInterval(() => {
@@ -74,6 +73,5 @@ if (currentURL.includes("/edit") || currentURL.includes("/speed_grader")) {
         }
       }, 1000);
     });
-  });
 }
 loadCSS(`${hostUrl}/stackle_canvas.css`);
