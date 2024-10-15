@@ -15,6 +15,7 @@ const addStackleClass = () => {
       // Find and add 'stackle_iframe' class to all iframes inside this element
       const iframes = element.querySelectorAll("iframe");
       iframes.forEach(iframe => {
+        console.log(iframe);
         iframe.classList.add("stackle_iframe");
       });
     });
@@ -22,7 +23,6 @@ const addStackleClass = () => {
     console.log("Stackle Detected... Added CSS classes");
   }
 };
-addStackleClass();
 loadJS(`${hostUrl}/moduleWindowFix.js`).then(function () {
   console.log("Stackle Module Fix loaded");
 });
@@ -34,10 +34,12 @@ let currentURL = window.location.href;
 if (currentURL.includes('/edit') || currentURL.includes('/speed_grader')) {
     console.log('URL contains /edit or /speed_grader');
 } else {
+
   loadJS(
     `${hostUrl}/iframeResizer.min.js`
   ).then(function () {
-    console.log("Resizin only stackle iframes");
+    addStackleClass();
+    console.log("Resizing only stackle iframes");
     let counter = 0;
     const intervalId = setInterval(() => {
       iFrameResize({
