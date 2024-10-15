@@ -36,6 +36,8 @@ function getIFrameThatSentMessage(message) {
 }
 function receiveMessage(event) {
   if (event.origin.includes("stacklehq.com") || event.origin.includes("stacklehq.com")) { 
+    currentIframe = getIFrameThatSentMessage(event);
+    currentIframe.classList.add("stackle_iframe");
     console.log(getIFrameThatSentMessage(event));
       //console.log("event.origin: ", event.origin);
       //console.log("event.data: ", event.data);
