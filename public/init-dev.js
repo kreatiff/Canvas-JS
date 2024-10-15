@@ -1,31 +1,33 @@
 const addStackleClass = () => {
-  // Select all elements with [data-tool-id*='stackle.app']
-  const stackleElements = document.querySelectorAll("[data-tool-id*='stackle.app']");
+  // Select all form elements with [data-tool-id*='stackle.app']
+  const stackleForms = document.querySelectorAll("form[data-tool-id*='stackle.app']");
 
-  // If we found any Stackle elements
-  if (stackleElements.length > 0) {
+  // If we found any Stackle forms
+  if (stackleForms.length > 0) {
     // Add 'stackle_inside' class to the body
     document.body.classList.add("stackle_inside");
 
-    // For each Stackle element
-    stackleElements.forEach(element => {
-      // Add 'stackle_integration' class
-      element.classList.add("stackle_integration");
+    // For each Stackle form
+    stackleForms.forEach(form => {
+      // Add 'stackle_integration' class to the form
+      form.classList.add("stackle_integration");
 
-      // Find and add 'stackle_iframe' class to all iframes inside this element
-      const iframes = element.querySelectorAll("iframe");
-      iframes.forEach(iframe => {
-        console.log(iframe);
-        iframe.classList.add("stackle_iframe");
-      });
+      // Find the closest parent with class 'tool_content_wrapper'
+      const wrapper = form.closest('.tool_content_wrapper');
+      
+      if (wrapper) {
+        // Find the iframe within this wrapper
+        const iframe = wrapper.querySelector('iframe');
+        
+        if (iframe) {
+          iframe.classList.add("stackle_iframe");
+        }
+      }
     });
 
     console.log("Stackle Detected... Added CSS classes");
   }
 };
-loadJS(`${hostUrl}/moduleWindowFix.js`).then(function () {
-  console.log("Stackle Module Fix loaded");
-});
 
 // Get the current URL
 let currentURL = window.location.href;
