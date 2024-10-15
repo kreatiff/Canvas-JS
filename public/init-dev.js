@@ -47,7 +47,7 @@ window.addEventListener("message", receiveMessage, false);
 
 // Get the current URL
 let currentURL = window.location.href;
-
+document.addEventListener('DOMContentLoaded', (event) => {
 // Check if the URL contains "/edit" or "/speed_grader"
 if (currentURL.includes('/edit') || currentURL.includes('/speed_grader')) {
     console.log('URL contains /edit or /speed_grader');
@@ -73,3 +73,4 @@ if (currentURL.includes('/edit') || currentURL.includes('/speed_grader')) {
 
 
 loadCSS(`${hostUrl}/stackle_canvas.css`);
+});
