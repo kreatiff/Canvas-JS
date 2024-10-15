@@ -17,7 +17,7 @@ const addStackleClass = () => {
     }
   }
 };
-
+addStackleClass();
 loadJS(`${hostUrl}/moduleWindowFix.js`).then(function () {
   console.log("Stackle Module Fix loaded");
 });
@@ -45,7 +45,6 @@ if (currentURL.includes('/edit') || currentURL.includes('/speed_grader')) {
         clearInterval(intervalId);
       }
     }, 1000);
-    addStackleClass();
   });
 }
 
