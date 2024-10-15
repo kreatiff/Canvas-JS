@@ -6,7 +6,7 @@ const addStackleClass = () => {
   if (stackleForms.length > 0) {
     // Add 'stackle_inside' class to the body
     document.body.classList.add("stackle_inside");
-
+    console.log("Stackle Detected... Added CSS classes");
     // For each Stackle form
     stackleForms.forEach(form => {
       // Add 'stackle_integration' class to the form
@@ -24,8 +24,6 @@ const addStackleClass = () => {
       //   }
       // }
     });
-
-    console.log("Stackle Detected... Added CSS classes");
   }
 };
 function getIFrameThatSentMessage(message) {
@@ -60,7 +58,6 @@ if (currentURL.includes('/edit') || currentURL.includes('/speed_grader')) {
   ).then(function () {
     addStackleClass();
     window.addEventListener("message", receiveMessage, false);
-    console.log("Resizing only stackle iframes");
     let counter = 0;
     const intervalId = setInterval(() => {
       iFrameResize({
