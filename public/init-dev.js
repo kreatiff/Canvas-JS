@@ -29,6 +29,14 @@ const addStackleClass = () => {
   }
 };
 
+function receiveMessage(event) {
+      console.log("event.origin: ", event.origin);
+      console.log("event.data: ", event.data);
+      console.log("event.source: ", event.source);
+}
+// event listener for message event
+window.addEventListener("message", receiveMessage, false);
+
 // Get the current URL
 let currentURL = window.location.href;
 
