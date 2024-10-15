@@ -1,7 +1,7 @@
 const addStackleClass = () => {
   // Select all form elements with [data-tool-id*='stackle.app']
   const stackleForms = document.querySelectorAll("form[data-tool-id*='stackle.app']");
-
+  console.log("Stackle Forms:",  stackleForms.length);
   // If we found any Stackle forms
   if (stackleForms.length > 0) {
     // Add 'stackle_inside' class to the body
@@ -43,7 +43,7 @@ function receiveMessage(event) {
   }
 }
 // event listener for message event
-
+window.addEventListener("message", receiveMessage, false);
 
 // Get the current URL
 let currentURL = window.location.href;
@@ -52,12 +52,10 @@ let currentURL = window.location.href;
 if (currentURL.includes('/edit') || currentURL.includes('/speed_grader')) {
     console.log('URL contains /edit or /speed_grader');
 } else {
-
   loadJS(
     `${hostUrl}/iframeResizer.min.js`
   ).then(function () {
     addStackleClass();
-    window.addEventListener("message", receiveMessage, false);
     let counter = 0;
     const intervalId = setInterval(() => {
       iFrameResize({
