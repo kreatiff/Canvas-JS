@@ -1,20 +1,25 @@
 const addStackleClass = () => {
-  // Get the container element with class "tool_content_wrapper"
-  const container = document.querySelector(".tool_content_wrapper");
+  // Select all elements with [data-tool-id*='stackle.app']
+  const stackleElements = document.querySelectorAll("[data-tool-id*='stackle.app']");
 
-  // Check if the container has a child element with attribute "data-tool-id" equal to "staging.stackle.app"
-  if (container !== null) {
-    hasStackleIntegration =
-      container.querySelector("[data-tool-id*='stackle.app']") !== null;
-    stackleIframe = hasStackleIntegration.querySelector("iframe") !== null;
-    // If the container has a child element with attribute "data-tool-id" equal to "staging.stackle.app",
-    // add a class "stackle_integration" to the container element
-    if (hasStackleIntegration) {
-      document.body.classList.add("stackle_inside");
-      container.classList.add("stackle_integration");
-      stackleIframe.classList.add("stackle_iframe");
-      console.log("Stackle Detected... Adding CSS classes");
-    }
+  // If we found any Stackle elements
+  if (stackleElements.length > 0) {
+    // Add 'stackle_inside' class to the body
+    document.body.classList.add("stackle_inside");
+
+    // For each Stackle element
+    stackleElements.forEach(element => {
+      // Add 'stackle_integration' class
+      element.classList.add("stackle_integration");
+
+      // Find and add 'stackle_iframe' class to all iframes inside this element
+      const iframes = element.querySelectorAll("iframe");
+      iframes.forEach(iframe => {
+        iframe.classList.add("stackle_iframe");
+      });
+    });
+
+    console.log("Stackle Detected... Added CSS classes");
   }
 };
 addStackleClass();
