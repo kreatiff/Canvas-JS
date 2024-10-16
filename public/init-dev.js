@@ -35,7 +35,8 @@ function getIFrameThatSentMessage(message) {
 function receiveMessage(event) {
   if (
     event.origin.includes("stackle.app") ||
-    event.origin.includes("stacklehq.com")
+    event.origin.includes("stacklehq.com") ||
+    event.origin.includes("stackle.test")
   ) {
     currentIframe = getIFrameThatSentMessage(event);
 
