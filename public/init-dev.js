@@ -65,8 +65,7 @@ if (currentURL.includes("/edit") || currentURL.includes("/speed_grader")) {
             log: false,
             heightCalculationMethod: "bodyScroll",
             checkOrigin: false,
-          },
-          ".stackle_iframe"
+          }
         );
         counter++;
         if (counter === 10) {
