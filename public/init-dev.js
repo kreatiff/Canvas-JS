@@ -52,28 +52,28 @@ window.addEventListener("message", receiveMessage, false);
 let currentURL = window.location.href;
 
 // Check if the URL contains "/edit" or "/speed_grader"
-if (currentURL.includes("/edit") || currentURL.includes("/speed_grader")) {
-  console.log("URL contains /edit or /speed_grader");
-} else {
-  loadJS(`${hostUrl}/iframeResizer.min.js`).then(function () {
-    console.log("Resizer loaded");
-      addStackleClass();
-      let counter = 0;
-      const intervalId = setInterval(() => {
-        iFrameResize(
-          {
-            log: false,
-            heightCalculationMethod: "bodyScroll",
-            checkOrigin: false,
-          },
-          ".stackle_iframe"
-        );
-        counter++;
-        if (counter === 10) {
-          clearInterval(intervalId);
-          console.log("Interval cleared");
-        }
-      }, 1000);
-    });
-}
+// if (currentURL.includes("/edit") || currentURL.includes("/speed_grader")) {
+//   console.log("URL contains /edit or /speed_grader");
+// } else {
+//   loadJS(`${hostUrl}/iframeResizer.min.js`).then(function () {
+//     console.log("Resizer loaded");
+//       addStackleClass();
+//       let counter = 0;
+//       const intervalId = setInterval(() => {
+//         iFrameResize(
+//           {
+//             log: false,
+//             heightCalculationMethod: "bodyScroll",
+//             checkOrigin: false,
+//           },
+//           ".stackle_iframe"
+//         );
+//         counter++;
+//         if (counter === 10) {
+//           clearInterval(intervalId);
+//           console.log("Interval cleared");
+//         }
+//       }, 1000);
+//     });
+// }
 loadCSS(`${hostUrl}/stackle_canvas.css`);
