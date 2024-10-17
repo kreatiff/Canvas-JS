@@ -42,13 +42,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // Function to apply mini CSS if the origin matches
 function applyMiniCSS(event) {
-  // Check if the origin includes "instruture.com"
-  //if (event.origin.includes("instruture.com")) 
+  // Check if the data in the event matches "applyMiniCSS"
+  if (event.data == "applyMiniCSS") {
   //{
     console.log(event);
     // Load the CSS file from the specified URL
-    //loadCSS(`${hostUrl}/osg_stackle_canvas.css`);
-  //}
+    loadCSS(`${hostUrl}/osg_stackle_canvas.css`);
+  }
 }
 
 // Add event listener for messages from other windows
