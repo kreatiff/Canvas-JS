@@ -1,19 +1,18 @@
-function getIFrameThatSentMessage(message) {
+function detectStackleIframe(message) {
   let allIFrames = Array.from(document.querySelectorAll("iframe"));
   return allIFrames.find((iframe) => iframe.contentWindow == message.source);
 }
-function receiveMessage(event) {
+function stackleLTIResizer(event) {
   if (
     event.origin.includes("stackle.app") ||
     event.origin.includes("stacklehq.com") ||
     event.origin.includes("stackle.test")
   ) {
-    currentIframe = getIFrameThatSentMessage(event);
-
+    currentIframe = detectStackleIframe(event);
     currentIframe.classList.add("stackle_iframe");
     document.body.classList.add("stackle_inside");
-    console.log(currentIframe);
+    console.log('Stackle embed resized successfully');
   }
 }
 // event listener for message event
-window.addEventListener("message", receiveMessage, false);
+window.addEventListener("message", stackleLTIResizer, false);
