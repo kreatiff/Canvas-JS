@@ -9,5 +9,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
   '*'
 );
 	window.parent.postMessage({'frameUrl' : location.href}, '*');
-    console.log(location.href);
+  //console.log(location.href);
 });
