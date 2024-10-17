@@ -12,6 +12,7 @@ function stackleLTIResizer(event) {
     if (currentIframe.offsetWidth < 600) {
       currentIframe.contentWindow.postMessage(currentIframe.offsetWidth, "*");
       console.log("Applying mini CSS");
+    }
   }
 }
 // event listener for message event
