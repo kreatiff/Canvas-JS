@@ -14,3 +14,43 @@
     padding-top: 0 !important;
     margin-top: 0 !important;
 }
+/* Hide everything initially */
+.relative.w-full.flex.flex-col.bg-transparent > * {
+    display: none !important;
+}
+
+/* Show only the question text */
+.text-blue-dark.text-2xl.font-question.font-bold {
+    display: block !important;
+}
+
+/* Show the input field container */
+#wysiwyg-768 {
+    display: block !important;
+}
+
+/* Show the button container at the bottom */
+.relative.mt-4.w-full.flex.justify-between {
+    display: flex !important;
+}
+
+/* Hide any potential elements inside the button container that we don't want */
+.relative.mt-4.w-full.flex.justify-between > *:not(:last-child) {
+    display: none !important;
+}
+
+/* Additional styles to clean up the layout */
+.standard-pad.flex.flex-col.space-y-4 {
+    padding: 20px !important;
+}
+
+.ck.ck-editor__main > .ck-editor__editable {
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+}
+
+/* Ensure the submit button is visible and styled properly */
+.flex.flex-row.justify-center.items-center.space-x-2.transition.duration-200.ease-in-out.focus\:outline-none.px-4.md\:w-40.h-12.rounded-lg.text-xs.text-white.bg-aqua.hover\:bg-aqua-dark.hover\:text-white {
+    display: flex !important;
+    margin-top: 20px !important;
+}
