@@ -1,0 +1,16 @@
+/* Hide the header bar with "Quiz" */
+.sticky.top-0.bg-white.z-50.border-b.rounded-t-lg {
+    display: none;
+}
+
+/* Remove the border around the whole widget */
+.border.border-borderColor.rounded-xl.overflow-auto {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+/* Remove any potential padding or margin that might be causing space where the header was */
+.relative.w-full.flex.flex-col.bg-transparent {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
