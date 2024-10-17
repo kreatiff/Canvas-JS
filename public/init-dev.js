@@ -40,7 +40,7 @@ function receiveMessage(event) {
   ) {
     currentIframe = getIFrameThatSentMessage(event);
 
-    //currentIframe.classList.add("stackle_iframe");
+    currentIframe.classList.add("stackle_iframe");
     //currentIframe.closest.body.classList.add("stackle_inside");
     console.log(currentIframe);
   }
