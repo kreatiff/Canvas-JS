@@ -39,9 +39,10 @@ function receiveMessage(event) {
     event.origin.includes("stackle.test")
   ) {
     currentIframe = getIFrameThatSentMessage(event);
-    currentIframe.classList.add("stackle_iframe");
-    currentIframe.closest.body.classList.add("stackle_inside");
-    console.log(event.data);
+
+    //currentIframe.classList.add("stackle_iframe");
+    //currentIframe.closest.body.classList.add("stackle_inside");
+    console.log(currentIframe);
   }
 }
 // event listener for message event
