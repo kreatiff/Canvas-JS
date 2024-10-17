@@ -13,4 +13,3 @@ function stackleLTIResizer(event) {
 }
 // event listener for message event
 window.addEventListener("message", stackleLTIResizer, false);
-loadCSS(`${hostUrl}/osg_stackle_canvas.css`);

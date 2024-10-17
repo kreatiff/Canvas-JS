@@ -11,3 +11,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	window.parent.postMessage({'frameUrl' : location.href}, '*');
   //console.log(location.href);
 });
+function stackleLTIResizer(event) {
+  if (event.origin.includes("stackle.app")) 
+  {
+    currentIframe = detectStackleIframe(event);
+    currentIframe.classList.add("stackle_iframe");
+    document.body.classList.add("stackle_inside");
+    console.log('Stackle embed resized successfully');
+  }
+}
+if(loadCSS){ 
+  loadCSS(`${hostUrl}/osg_stackle_canvas.css`);
+};
