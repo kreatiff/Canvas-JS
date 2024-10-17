@@ -20,6 +20,15 @@ function stackleLTIResizer(event) {
     console.log('Stackle embed resized successfully');
   }
 }
-if(loadCSS){ 
-  loadCSS(`${hostUrl}/osg_stackle_canvas.css`);
+
+const loadCSS = (filename) => {
+  var fileref = document.createElement("link");
+  fileref.setAttribute("rel", "stylesheet");
+  fileref.setAttribute("type", "text/css");
+  fileref.setAttribute("href", filename);
+
+  document.getElementsByTagName("head")[0].appendChild(fileref);
 };
+
+const hostUrl = "https://canvas-js.s3.ap-southeast-2.amazonaws.com/public";
+loadCSS(`${hostUrl}/osg_stackle_canvas.css`);
