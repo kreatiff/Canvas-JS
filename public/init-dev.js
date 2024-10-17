@@ -39,11 +39,9 @@ function receiveMessage(event) {
     event.origin.includes("stackle.test")
   ) {
     currentIframe = getIFrameThatSentMessage(event);
-
+    currentIframe.classList.add("stackle_iframe");
+    currentIframe.closest.body.classList.add("stackle_inside");
     console.log(event.data);
-    //console.log("event.origin: ", event.origin);
-    //console.log("event.data: ", event.data);
-    //console.log("event.source: ", event.source.postMessage);
   }
 }
 // event listener for message event
@@ -51,6 +49,11 @@ window.addEventListener("message", receiveMessage, false);
 
 // Get the current URL
 let currentURL = window.location.href;
+
+loadCSS(`${hostUrl}/stackle_canvas.css`);
+if(currentURL.includes("oneschool")) {
+  loadCSS(`${hostUrl}/oneschoolglobal_stackle_canvas.css`);   
+}
 
 // Check if the URL contains "/edit" or "/speed_grader"
 // if (currentURL.includes("/edit") || currentURL.includes("/speed_grader")) {
