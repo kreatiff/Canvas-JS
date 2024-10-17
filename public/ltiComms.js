@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 // Function to apply mini CSS if the origin matches
 function applyMiniCSS(event) {
   // Check if the data in the event matches "applyMiniCSS"
-  if (event.data == "applyMiniCSS") {
+  if (event.data == "applyMiniCSS" && event.origin == "https://stackle.instructure.com") {
   //{
     console.log(event);
     // Load the CSS file from the specified URL
