@@ -45,7 +45,7 @@ function applyMiniCSS(event) {
   // Check if the origin includes "instruture.com"
   //if (event.origin.includes("instruture.com")) 
   //{
-    console.log(event.data);
+    console.log(event);
     // Load the CSS file from the specified URL
     //loadCSS(`${hostUrl}/osg_stackle_canvas.css`);
   //}
