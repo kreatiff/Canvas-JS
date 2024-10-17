@@ -1,10 +1,15 @@
-loadJS(
-  `https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.min.js`
-).then(function () {
-  console.log("Resizer loaded");
-  iFrameResize({
-    log: false,
-    heightCalculationMethod: "max",
-    checkOrigin: false
-  });
-});
+function detectStackleIframe(message) {
+  let allIFrames = Array.from(document.querySelectorAll("iframe"));
+  return allIFrames.find((iframe) => iframe.contentWindow == message.source);
+}
+function stackleLTIResizer(event) {
+  if (event.origin.includes("stackle.app")) 
+  {
+    currentIframe = detectStackleIframe(event);
+    currentIframe.classList.add("stackle_iframe");
+    document.body.classList.add("stackle_inside");
+    console.log('Stackle embed resized successfully');
+  }
+}
+// event listener for message event
+window.addEventListener("message", stackleLTIResizer, false);
