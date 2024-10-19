@@ -3,7 +3,7 @@ function detectStackleIframe(message) {
   return allIFrames.find((iframe) => iframe.contentWindow == message.source);
 }
 function stackleLTIResizer(event) {
-  if (event.origin.includes("stackle.app")) 
+  if (event.origin.includes("stackle.app") || event.origin.includes("stackle.test")) 
   {
     currentIframe = detectStackleIframe(event);
     currentIframe.classList.add("stackle_iframe");
