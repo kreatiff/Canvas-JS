@@ -1,3 +1,8 @@
+/* Ensure the body and html don't have fixed heights */
+body.stackle-mini{
+    height: auto !important;
+    min-height: 0 !important;
+}
 .stackle-mini .question-header {
     display: none !important;
 }
