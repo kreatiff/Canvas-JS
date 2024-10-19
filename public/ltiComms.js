@@ -48,7 +48,7 @@ function applyMiniCSS(event) {
     console.log(event);
     // Load the CSS file from the specified URL
     document.body.classList.add("stackle-mini");
-    loadCSS(`${hostUrl}/osg_stackle_canvas.css`);
+    //loadCSS(`${hostUrl}/osg_stackle_canvas.css`);
   }
 }
 
