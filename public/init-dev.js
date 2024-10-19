@@ -9,7 +9,7 @@ function stackleLTIResizer(event) {
     currentIframe.classList.add("stackle_iframe");
     document.body.classList.add("stackle_inside");
     console.log('Stackle embed resized successfully');
-    if (currentIframe.offsetWidth < 600) {
+    if (currentIframe.classList.contains("stackle-mini")) {
       currentIframe.contentWindow.postMessage("applyMiniCSS", "*");
       console.log("Applying mini CSS");
     }
