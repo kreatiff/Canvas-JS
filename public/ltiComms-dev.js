@@ -43,4 +43,4 @@ document.onreadystatechange = function () {
 };
 
 // Additional resize listener to handle dynamic content changes
-window.addEventListener("resize", resizeIframe);
+//window.addEventListener("resize", resizeIframe);
