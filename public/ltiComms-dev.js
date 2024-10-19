@@ -38,7 +38,7 @@ document.onreadystatechange = function () {
   if (document.readyState == "complete") {
     resizeIframe();
     // Send the current frame URL to the parent window
-    window.parent.postMessage({ frameUrl: location.href }, "*");
+    window.parent.postMessage("Stackle iFrame Loaded", "*");
   }
 };
 
