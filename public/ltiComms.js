@@ -13,7 +13,7 @@ const loadCSS = (filename) => {
 };
 const checkIframeSize = (wrapperElement) => {
   // Calculate the maximum height of the document
-  if (wrapperElement == null) {
+  if (wrapperElement == "") {
   var body = document.body, html = document.documentElement;
   var height = Math.max(
     body.scrollHeight, 
@@ -24,7 +24,7 @@ const checkIframeSize = (wrapperElement) => {
   ) + 25; // Add 25px padding
   } else {
     wrapperElement = document.getElementById(wrapperElement);
-    var height = wrapperElement.scrollHeight;
+    var height = wrapperElement.scrollHeight+25;
   }
   // Send a message to the parent window to resize the frame
   window.parent.postMessage(
@@ -61,4 +61,4 @@ window.addEventListener("message", applyMiniCSS, false);
 
 }
 
-document.addEventListener('DOMContentLoaded', checkIframeSize, false);
+document.addEventListener('DOMContentLoaded', checkIframeSize(""), false);
