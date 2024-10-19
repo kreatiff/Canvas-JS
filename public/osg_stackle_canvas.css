@@ -1,23 +1,23 @@
-.stacke-mini .question-header {
+.stackle-mini .question-header {
     display: none !important;
 }
-.stacke-mini .embed-description {
+.stackle-mini .embed-description {
     border: none !important;
 }
-.stacke-mini .embed-description .standard-pad{
+.stackle-mini .embed-description .standard-pad{
     padding: 0px !important;
 }
-.stacke-mini .embed-header-content {
+.stackle-mini .embed-header-content {
     display: none !important;
 }
-.stacke-mini .question-wrapper{
+.stackle-mini .question-wrapper{
     border: none !important;
 }
-.stacke-mini .question-content{
+.stackle-mini .question-content{
     border: none !important;
     padding: 0px !important;
 }
-.stacke-mini .question-details{
+.stackle-mini .question-details{
     border: none !important;
     padding: 0px !important;
 }
