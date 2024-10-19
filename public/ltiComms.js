@@ -11,8 +11,9 @@ const loadCSS = (filename) => {
   // Append the link element to the head of the document
   document.getElementsByTagName("head")[0].appendChild(fileref);
 };
-const checkIframeSize = () => {
+const checkIframeSize = (wrapperElement) => {
   // Calculate the maximum height of the document
+  if (wrapperElement == null) {
   var body = document.body, html = document.documentElement;
   var height = Math.max(
     body.scrollHeight, 
@@ -21,7 +22,10 @@ const checkIframeSize = () => {
     html.scrollHeight, 
     html.offsetHeight
   ) + 25; // Add 25px padding
-
+  } else {
+    wrapperElement = document.getElementById(wrapperElement);
+    var height = wrapperElement.scrollHeight;
+  }
   // Send a message to the parent window to resize the frame
   window.parent.postMessage(
     {
@@ -30,7 +34,7 @@ const checkIframeSize = () => {
     },
     '*'
   );
-  
+
 // Define the host URL for loading resources
 const hostUrl = "https://canvas-js.s3.ap-southeast-2.amazonaws.com/public";
 
@@ -43,7 +47,7 @@ function applyMiniCSS(event) {
     // Load the CSS file from the specified URL
     document.body.classList.add("stackle-mini");
     //loadCSS(`${hostUrl}/osg_stackle_canvas.css`);
-    checkIframeSize;
+    checkIframeSize("embed-wrapper");
   }
 }
 
