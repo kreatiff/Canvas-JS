@@ -7,7 +7,7 @@ function applyMiniCSS(event) {
     document.body.classList.add("stackle-mini");
 
     // Wait for a short time to ensure CSS changes have been applied
-    setTimeout(resizeIframe, 100);
+    //setTimeout(resizeIframe, 100);
   }
 }
 
