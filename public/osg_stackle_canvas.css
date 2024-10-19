@@ -1,0 +1,21 @@
+.question-header {
+    display: none !important;
+}
+
+.embed-description .standard-pad{
+    padding: 0px !important;
+}
+.embed-header-content {
+    display: none !important;
+}
+.question-wrapper{
+    border: none !important;
+}
+.question-content{
+    border: none !important;
+    padding: 0px !important;
+}
+.question-details{
+    border: none !important;
+    padding: 0px !important;
+}
