@@ -4,23 +4,6 @@ function applyMiniCSS(event) {
   //{
     console.log(event);
     document.body.classList.add("stackle-mini");
-    var body = document.body, html = document.documentElement;
-    var height = Math.max(
-      body.scrollHeight, 
-      body.offsetHeight, 
-      html.clientHeight, 
-      html.scrollHeight, 
-      html.offsetHeight
-    ) + 25; // Add 25px padding
-  
-    // Send a message to the parent window to resize the frame
-    window.parent.postMessage(
-      {
-        subject: 'lti.frameResize',
-        height: height
-      },
-      '*'
-    );
   }
 }
 
