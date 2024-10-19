@@ -25,9 +25,6 @@ function applyMiniCSS(event) {
         '*'
       );
     }
-  
-    // Send the current frame URL to the parent window
-    window.parent.postMessage({'frameUrl' : location.href}, '*');
   }
   
   // Add event listener for messages from other windows
@@ -37,6 +34,8 @@ function applyMiniCSS(event) {
   document.onreadystatechange = function () {
     if (document.readyState == "complete") {
       resizeIframe();
+    // Send the current frame URL to the parent window
+    window.parent.postMessage({'frameUrl' : location.href}, '*');
     }
   }
   
