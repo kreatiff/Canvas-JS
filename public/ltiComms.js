@@ -31,7 +31,7 @@ function applyMiniCSS(event) {
 // Add event listener for messages from other windows
 window.addEventListener("message", applyMiniCSS, false);
 
-function checkIframeSize() {
+const checkIframeSize = () => {
   // Calculate the maximum height of the document
   var body = document.body, html = document.documentElement;
   var height = Math.max(
