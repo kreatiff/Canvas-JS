@@ -1,7 +1,6 @@
 function applyMiniCSS(event) {
   if (
-    event.data == "applyMiniCSS" &&
-    event.origin == "https://stackle.instructure.com"
+    event.data == "applyMiniCSS"
   ) {
     console.log(event);
     document.body.classList.add("stackle-mini");
