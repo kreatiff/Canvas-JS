@@ -26,6 +26,4 @@ body.stackle-mini{
     border: none !important;
     padding: 0px !important;
 }
-.stackle-mini .embed-description div:has(svg[id="Group_1209"]) {
-    display: none;
-}
+.stackle-mini .embed-description div:has(svg[id="Group_1209"]) {}
