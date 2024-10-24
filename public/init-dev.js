@@ -14,15 +14,23 @@ function stackleLTIResizer(event) {
     console.log('Stackle embed resized successfully');
     
     // Check if parent iframe has stackle-mini class
-    if (window.frameElement && window.frameElement.classList.contains('stackle-mini')) {
-      console.log(window.frameElement);
-      window.frameElement.contentWindow.postMessage("applyMiniCSS", "*");
-      console.log("Applying mini CSS to parent iframe");
-      currentIframe.contentWindow.postMessage("applyMiniCSS", "*");
-      console.log("Applying mini CSS");
-    }else{
-      console.log("No stackle-mini class found");
-    }
+    let checkCount = 0;
+    const checkInterval = setInterval(() => {
+      console.log("Checking for stackle-mini class...");
+      if (window.frameElement && window.frameElement.classList.contains('stackle-mini')) {
+        console.log(window.frameElement);
+        window.frameElement.contentWindow.postMessage("applyMiniCSS", "*");
+        console.log("Applying mini CSS to parent iframe");
+        currentIframe.contentWindow.postMessage("applyMiniCSS", "*");
+        console.log("Applying mini CSS");
+      }else{
+        checkCount++;
+        if (checkCount >= 10) { // Stop checking after 10 attempts
+          console.log("Class check timed out");
+          clearInterval(checkInterval);
+        }
+      }
+    }, 100); // Check every 100ms
   }
 }
 // event listener for message event
