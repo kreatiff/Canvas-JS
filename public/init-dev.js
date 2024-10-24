@@ -23,6 +23,7 @@ function stackleLTIResizer(event) {
         console.log("Applying mini CSS to parent iframe");
         currentIframe.contentWindow.postMessage("applyMiniCSS", "*");
         console.log("Applying mini CSS");
+        clearInterval(checkInterval);
       }else{
         checkCount++;
         if (checkCount >= 10) { // Stop checking after 10 attempts
