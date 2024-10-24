@@ -16,6 +16,8 @@ function stackleLTIResizer(event) {
     // Check if parent iframe has stackle-mini class
     if (window.frameElement && window.frameElement.classList.contains('stackle-mini')) {
       console.log(window.frameElement);
+      window.frameElement.contentWindow.postMessage("applyMiniCSS", "*");
+      console.log("Applying mini CSS to parent iframe");
       currentIframe.contentWindow.postMessage("applyMiniCSS", "*");
       console.log("Applying mini CSS");
     }else{
