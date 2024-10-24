@@ -26,7 +26,7 @@ function stackleLTIResizer(event) {
         clearInterval(checkInterval);
       }else{
         checkCount++;
-        if (checkCount >= 10) { // Stop checking after 10 attempts
+        if (checkCount >= 5) { // Stop checking after 10 attempts
           console.log("Class check timed out");
           clearInterval(checkInterval);
         }
