@@ -1,13 +1,3 @@
-function detectStackleIframe(message) {
-  const allIFrames = Array.from(document.querySelectorAll("iframe"));
-  const iframe = allIFrames.find((iframe) => iframe.contentWindow == message.source);
-  
-  if (!iframe) {
-    console.warn("Could not find matching iframe for message", message);
-  }
-  return iframe;
-}
-
 function stackleLTIResizer(event) {
   if ((event.origin.includes("stackle.app") || 
       event.origin.includes("stackle.test")) &&
@@ -23,19 +13,23 @@ function stackleLTIResizer(event) {
     document.body.classList.add("stackle_inside");
     console.log('Stackle embed resized successfully');
     
-    // Add debugging logs
-    console.log("Iframe classes:", currentIframe.className);
-    console.log("Has stackle-mini class:", currentIframe.classList.contains("stackle-mini"));
-
-    if (currentIframe.classList.contains("stackle-mini")) {
-      console.log("Attempting to send applyMiniCSS message");
-      try {
+    // Check for class multiple times over a short period
+    let checkCount = 0;
+    const checkInterval = setInterval(() => {
+      console.log("Checking for stackle-mini class...");
+      if (currentIframe.classList.contains("stackle-mini")) {
+        console.log("Found stackle-mini class!");
         currentIframe.contentWindow.postMessage("applyMiniCSS", "*");
-        console.log("ApplyMiniCSS message sent");
-      } catch (error) {
-        console.error("Error sending message:", error);
+        console.log("Applying mini CSS");
+        clearInterval(checkInterval);
+      } else {
+        checkCount++;
+        if (checkCount >= 10) { // Stop checking after 10 attempts
+          console.log("Class check timed out");
+          clearInterval(checkInterval);
+        }
       }
-    }
+    }, 100); // Check every 100ms
   }
 }
 
