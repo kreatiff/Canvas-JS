@@ -1,3 +1,13 @@
+function detectStackleIframe(message) {
+  const allIFrames = Array.from(document.querySelectorAll("iframe"));
+  const iframe = allIFrames.find((iframe) => iframe.contentWindow == message.source);
+  
+  if (!iframe) {
+    console.warn("Could not find matching iframe for message", message);
+  }
+  return iframe;
+}
+
 function stackleLTIResizer(event) {
   if ((event.origin.includes("stackle.app") || 
       event.origin.includes("stackle.test")) &&
