@@ -18,7 +18,7 @@ function stackleLTIResizer(event) {
     currentIframe.classList.add("stackle_iframe");
     document.body.classList.add("stackle_inside");
     console.log('Stackle embed resized successfully');
-    
+    window.removeEventListener("message", stackleLTIResizer, true);
   }
 }
 // event listener for message event
