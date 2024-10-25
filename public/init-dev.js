@@ -14,13 +14,12 @@ function stackleLTIResizer(event) {
     currentIframe.classList.add("stackle_iframe");
     document.body.classList.add("stackle_inside");
     console.log('Stackle embed resized successfully');
-
-    stackleMinifier(document.querySelectorAll("iframe"));
-
+    currentIframe.addEventListener("load", stackleMinifier);
   }
 }
-function stackleMinifier(iFrames) {
+function stackleMinifier() {
     // Handle stackle-mini iframes
+    iFrames= document.querySelectorAll("iframe");
     console.log("Looking for mini-stackle iframes...");
     iFrames.forEach(iframe => {
       if (iframe.classList.contains('stackle-mini')) {
@@ -30,5 +29,8 @@ function stackleMinifier(iFrames) {
     });
 }
 // Add the event listener
-window.addEventListener("message", stackleLTIResizer, false);
+document.addEventListener("DOMContentLoaded", () => {
+  window.addEventListener("message", stackleLTIResizer, false);
+});
+
 })();
