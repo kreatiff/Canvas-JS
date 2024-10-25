@@ -6,7 +6,7 @@ function stackleLTIResizer(event) {
   document.querySelectorAll("iframe").forEach(iframe => {
     if (iframe.classList.contains('stackle-mini')) {
       console.log("Found stackle-mini class!");
-      //iframe.contentWindow.postMessage("applyMiniCSS", "*");
+      iframe.contentWindow.postMessage("applyMiniCSS", "*");
       //console.log("Applying mini CSS");
     }
   });
