@@ -17,21 +17,26 @@ function stackleLTIResizer(event) {
     let checkCount = 0;
     const checkInterval = setInterval(() => {
       console.log("Checking for stackle-mini class...");
-      if (window.frameElement && window.frameElement.classList.contains('stackle-mini')) {
-        console.log(window.frameElement);
-        window.frameElement.contentWindow.postMessage("applyMiniCSS", "*");
-        console.log("Applying mini CSS to parent iframe");
-        currentIframe.contentWindow.postMessage("applyMiniCSS", "*");
-        console.log("Applying mini CSS");
-        clearInterval(checkInterval);
-      }else{
-        checkCount++;
-        if (checkCount >= 5) { // Stop checking after 10 attempts
-          console.log("Class check timed out");
-          clearInterval(checkInterval);
+      document.onreadystatechange = function () {
+        if (document.readyState == "complete") {
+          console.log("Parent iframe ready");
+          if (window.frameElement && window.frameElement.classList.contains('stackle-mini') &&) {
+            console.log(window.frameElement);
+            window.frameElement.contentWindow.postMessage("applyMiniCSS", "*");
+            console.log("Applying mini CSS to parent iframe");
+            currentIframe.contentWindow.postMessage("applyMiniCSS", "*");
+            console.log("Applying mini CSS");
+            clearInterval(checkInterval);
+          }else{
+            checkCount++;
+            if (checkCount >= 10) { // Stop checking after 10 attempts
+              console.log("Class check timed out");
+              clearInterval(checkInterval);
+            }
+          }
         }
-      }
-    }, 100); // Check every 100ms
+      };
+    }, 200); // Check every 200ms
   }
 }
 // event listener for message event
