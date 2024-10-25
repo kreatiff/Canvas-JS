@@ -4,49 +4,65 @@ function detectStackleIframe(message) {
 }
 
 function stackleLTIResizer(event) {
-  if ((event.origin.includes("stackle.app") || event.origin.includes("stackle.test")) && event.data == "Stackle iFrame Loaded") {
-    let currentIframe = detectStackleIframe(event);
-
+  if ((event.origin.includes("stackle.app") || 
+      event.origin.includes("stackle.test")) &&
+      event.data == "Stackle iFrame Loaded"
+  ) {
+    currentIframe = detectStackleIframe(event);
+    
+    // Ensure currentIframe exists before proceeding
     if (!currentIframe) {
-      console.log("Iframe not detected, retrying...");
-      return; // Exit if iframe not found
+      console.log("No matching iframe found");
+      return;
     }
 
-    addNoCacheToIFrame(currentIframe);
     currentIframe.classList.add("stackle_iframe");
     document.body.classList.add("stackle_inside");
     console.log('Stackle embed resized successfully');
+    
+    // Function to handle the mini CSS application
+    const applyMiniCSS = () => {
+      try {
+        const hasFrameElementMini = window.frameElement && 
+                                  window.frameElement.classList && 
+                                  window.frameElement.classList.contains('stackle-mini');
+        const hasCurrentIframeMini = currentIframe && 
+                                   currentIframe.classList && 
+                                   currentIframe.classList.contains('stackle-mini');
 
-    if ((window.frameElement && window.frameElement.classList.contains('stackle-mini')) || currentIframe.classList.contains('stackle-mini')) {
-      window.frameElement.contentWindow.postMessage("applyMiniCSS", "");
-      currentIframe.contentWindow.postMessage("applyMiniCSS", "");
+        if (hasFrameElementMini || hasCurrentIframeMini) {
+          console.log("Found stackle-mini class");
+
+          // Apply to frame element if it exists
+          if (hasFrameElementMini && window.frameElement.contentWindow) {
+            window.frameElement.contentWindow.postMessage("applyMiniCSS", "*");
+            console.log("Applying mini CSS to parent iframe");
+          }
+
+          // Apply to current iframe
+          if (currentIframe.contentWindow) {
+            currentIframe.contentWindow.postMessage("applyMiniCSS", "*");
+            console.log("Applying mini CSS to current iframe");
+          }
+        } else {
+          console.log("No stackle-mini class found");
+        }
+      } catch (error) {
+        console.error("Error applying mini CSS:", error);
+      }
+    };
+
+    // If document is still loading, wait for it to complete
+    if (document.readyState !== 'complete') {
+      window.addEventListener('load', applyMiniCSS);
     } else {
-      console.log("No stackle-mini class found");
+      // Document is already loaded, execute immediately
+      applyMiniCSS();
     }
   }
 }
 
-// Listen for iframe load to ensure it's ready before detecting
-document.querySelectorAll("iframe").forEach((iframe) => {
-  iframe.addEventListener('load', function() {
-    console.log('Iframe loaded:', iframe.src);
-    iframe.contentWindow.postMessage("iframeLoaded", "*");
-  });
-});
-
-// Cache-busting function
-function addNoCacheToIFrame(iframe) {
-  if (iframe) {
-    let src = iframe.src;
-    if (!src.includes("?")) {
-      iframe.src = src + "?t=" + new Date().getTime(); 
-    } else {
-      iframe.src = src + "&t=" + new Date().getTime();
-    }
-    console.log("Cache-busting added to iframe:", iframe.src);
-  }
-}
-
-// Ensure listener is refreshed
-window.removeEventListener("message", stackleLTIResizer);
+// Remove any existing listeners before adding a new one
+window.removeEventListener("message", stackleLTIResizer, false);
+// Add event listener
 window.addEventListener("message", stackleLTIResizer, false);
