@@ -16,6 +16,13 @@ function stackleLTIResizer(event) {
     // Check if parent iframe has stackle-mini class
     let checkCount = 0;
     const checkInterval = setInterval(() => {
+      document.querySelectorAll("iframe").forEach(iframe => {
+        if (iframe.classList.contains('stackle-mini')) {
+          console.log("Found stackle-mini class!");
+          //iframe.contentWindow.postMessage("applyMiniCSS", "*");
+          //console.log("Applying mini CSS");
+        }
+      });
       console.log("Checking for stackle-mini class...");
       if ((window.frameElement && window.frameElement.classList.contains('stackle-mini')) || currentIframe.classList.contains('stackle-mini')) {
         console.log(window.frameElement);
