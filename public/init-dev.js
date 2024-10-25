@@ -37,8 +37,6 @@ function stackleLTIResizer(event) {
     document.body.classList.add("stackle_inside");
     console.log('Stackle embed resized successfully');
 
-    // Remove the event listener after it's fired
-    window.removeEventListener("message", stackleLTIResizer, false);
   }
 }
 
