@@ -14,7 +14,7 @@ function stackleLTIResizer(event) {
     currentIframe.classList.add("stackle_iframe");
     document.body.classList.add("stackle_inside");
     console.log('Stackle embed resized successfully');
-    currentIframe.addEventListener("load", stackleMinifier);
+    stackleMinifier();
   }
 }
 function stackleMinifier() {
@@ -29,8 +29,6 @@ function stackleMinifier() {
     });
 }
 // Add the event listener
-document.addEventListener("DOMContentLoaded", () => {
-  window.addEventListener("message", stackleLTIResizer, false);
-});
-
+document.addEventListener("DOMContentLoaded", stackleMinifier);
+window.addEventListener("message", stackleLTIResizer, false);
 })();
