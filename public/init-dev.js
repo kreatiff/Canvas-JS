@@ -2,15 +2,24 @@
 function detectStackleIframe(message) {
   let allIFrames = Array.from(document.querySelectorAll("iframe"));
   
-  // Handle stackle-mini iframes
   allIFrames.forEach(iframe => {
-    if (iframe.classList.contains('stackle-mini')) {
-      console.log("Found stackle-mini class!");
-      iframe.contentWindow.postMessage("applyMiniCSS", "*");
+    if (!iframe.contentWindow) {
+      // If iframe isn't ready, wait for it to load
+      iframe.addEventListener('load', () => {
+        if (iframe.classList.contains('stackle-mini')) {
+          console.log("Found stackle-mini class!");
+          iframe.contentWindow.postMessage("applyMiniCSS", "*");
+        }
+      });
+    } else {
+      // If iframe is already loaded, process it immediately
+      if (iframe.classList.contains('stackle-mini')) {
+        console.log("Found stackle-mini class!");
+        iframe.contentWindow.postMessage("applyMiniCSS", "*");
+      }
     }
   });
 
-  // Return the matching iframe
   return allIFrames.find((iframe) => iframe.contentWindow == message.source);
 }
 
