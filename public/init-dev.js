@@ -3,6 +3,10 @@ function detectStackleIframe(message) {
   let allIFrames = Array.from(document.querySelectorAll("iframe"));
   
   allIFrames.forEach(iframe => {
+    if (iframe.classList.contains('stackle-mini')) {
+      console.log("Found stackle-mini class!");
+      iframe.contentWindow.postMessage("applyMiniCSS", "*");
+    }
     if (!iframe.contentWindow) {
       // If iframe isn't ready, wait for it to load
       iframe.addEventListener('load', () => {
