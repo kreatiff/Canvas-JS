@@ -21,6 +21,7 @@ function stackleLTIResizer(event) {
 }
 function stackleMinifier(iFrames) {
     // Handle stackle-mini iframes
+    console.log("Looking for mini-stackle iframes...");
     iFrames.forEach(iframe => {
       if (iframe.classList.contains('stackle-mini')) {
         console.log("Found stackle-mini class!");
