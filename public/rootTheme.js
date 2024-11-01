@@ -46,7 +46,6 @@ const loadCSS = (filename) => {
 };
 
 const hostUrl = "https://canvas-js.s3.ap-southeast-2.amazonaws.com/public";
-const datestamp = Date.now();
 
 ////////////////////////////////////////////////////
 // END CSS Loader                                 //
@@ -56,7 +55,7 @@ const datestamp = Date.now();
 // Load External Files                            //
 ////////////////////////////////////////////////////
 
-loadJS(`${hostUrl}/init.js?v=${datestamp}`).then(
+loadJS(`${hostUrl}/init.js`).then(
   console.log("Initializer loaded!")
 );
 
